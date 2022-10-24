@@ -16,6 +16,32 @@ from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins, ChatA
 from telethon.tl.functions.channels import EditBannedRequest
 from datetime import datetime
 from var import Var
+from time import sleep
+from telethon.errors.rpcerrorlist import FloodWaitError
+from telethon.tl import functions
+from telethon.tl.types import (
+    ChannelParticipantsAdmins,
+    ChannelParticipantsKicked,
+    ChatBannedRights,
+    UserStatusEmpty,
+    UserStatusLastMonth,
+    UserStatusLastWeek,
+    UserStatusOffline,
+    UserStatusOnline,
+    UserStatusRecently,
+)
+
+RIGHTS = ChatBannedRights(
+    until_date=None,
+    view_messages=True,
+    send_messages=True,
+    send_media=True,
+    send_stickers=True,
+    send_gifs=True,
+    send_games=True,
+    send_inline=True,
+    embed_links=True,
+)
 
 
 logging.basicConfig(level=logging.INFO)
