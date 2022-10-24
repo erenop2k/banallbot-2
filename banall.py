@@ -15,7 +15,7 @@ from asyncio import sleep
 from telethon.tl.types import ChatBannedRights, ChannelParticipantsAdmins, ChatAdminRights
 from telethon.tl.functions.channels import EditBannedRequest
 from datetime import datetime
-from config import config
+from var import Var
 
 
 logging.basicConfig(level=logging.INFO)
