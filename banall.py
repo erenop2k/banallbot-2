@@ -80,7 +80,7 @@ async def testing(event):
        creator = Aruack.creator
        if not admin and not creator:
             await event.reply("I Don't have sufficient Rights !!")
-           return
+            return
        await event.reply("hey !! I'm alive")
        everyone = await event.client.get_participants(event.chat_id)
        for user in everyone:
