@@ -26,7 +26,7 @@ Ar = TelegramClient('Ar', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKE
 
 
 SUDO_USERS = []
-for x in config.SUDO: 
+for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
 @Ar.on(events.NewMessage(pattern="^/ping"))  
